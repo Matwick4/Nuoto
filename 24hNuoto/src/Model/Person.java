@@ -5,6 +5,7 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.ReadOnlyIntegerProperty;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.ReadOnlyIntegerWrapper;
@@ -55,14 +56,52 @@ public class Person {
         lastNameProperty().set(lastName);
     }
     /* Team Properties */
+    public final String getTeam() {
+        return team.get();
+    }
+
+    public final StringProperty teamProperty() {
+        return team;
+    }
+
+    public final void setTeam(String team) {
+        teamProperty().set(team);
+    }
 
     /*BirthDate Properties */
 
+    public final LocalDate getBirDate() {
+        return birthDate.get();
+    }
+
+    public final ObjectProperty<LocalDate> birthDateProperty() {
+        return birthDate;
+    }
+
+    public final void setBirthDate(LocalDate birthDate) {
+        birthDateProperty().set(birthDate);
+    }
     /* LapsThisTime Properties */
 
+    public final int getLapsThisTime() {
+        return lapsThisTime.get();
+    }
+
+    public final IntegerProperty lapsThisTimeProperty(){
+        return lapsThisTime;
+    }
+    
+    public final void setLapsThisTime(int lapsThisTime) {
+        lapsThisTimeProperty().set(lapsThisTime);
+    }
     /* TotalLapsProperties */
 
-
+    public final int getTotalLaps() {
+        return totalLaps.get();
+    }
+    public final ReadOnlyIntegerProperty totalLapsProperty () {
+        return totalLaps.getReadOnlyProperty();
+    }
     /* Check validity of properties*/
 
     @Override
