@@ -1,11 +1,10 @@
 {
     "java.project.referencedLibraries": [
-        "lib/**/*.jar",
-        "/usr/share/openjfx/lib/javafx.controls.jar",
-        "/usr/share/openjfx/lib/javafx.base.jar",
-        "/usr/share/openjfx/lib/javafx.graphics.jar",
-        "24hNuoto/lib/javafx.base.jar",
-        "24hNuoto/lib/javafx.controls.jar",
-        "24hNuoto/lib/javafx.graphics.jar"
+        "24hNuoto/lib/Linux/javafx-sdk-17.0.7/lib/javafx.base.jar",
+        "24hNuoto/lib/Linux/javafx-sdk-17.0.7/lib/javafx.controls.jar",
+        "24hNuoto/lib/Linux/javafx-sdk-17.0.7/lib/javafx.graphics.jar",
+        "24hNuoto/lib/Windows/javafx-sdk-17.0.7/lib/javafx.base.jar",
+        "24hNuoto/lib/Windows/javafx-sdk-17.0.7/lib/javafx.controls.jar",
+        "24hNuoto/lib/Windows/javafx-sdk-17.0.7/lib/javafx.graphics.jar",
     ]
 }

@@ -6,10 +6,17 @@
     "configurations": [
         {
             "type": "java",
-            "name": "Lauch App",
+            "name": "Windows",
             "request": "launch",
             "mainClass": "Main",
-            "vmArgs": "--module-path /usr/share/openjfx/lib --add-modules javafx.controls",
+            "vmArgs": "--module-path 24hNuoto/lib/Windows/javafx-sdk-17.0.7/lib --add-modules javafx.controls",
+        },
+        {
+            "type": "java",
+            "name": "Linux",
+            "request": "launch",
+            "mainClass": "Main",
+            "vmArgs": "--module-path 24hNuoto/lib/Linux/javafx-sdk-17.0.7/lib --add-modules javafx.controls",
         }
     ]
 }

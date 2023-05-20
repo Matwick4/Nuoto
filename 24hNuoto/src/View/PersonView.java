@@ -41,7 +41,7 @@ public class PersonView extends GridPane {
     }
 
     private void bind() {
-        firstNameFld.textProperty().bind(model.firstName);
+        
     }
     
 }
