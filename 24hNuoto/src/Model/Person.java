@@ -1,6 +1,8 @@
 package Model;
 
 import java.time.LocalDate;
+import java.util.List;
+
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
@@ -15,7 +17,7 @@ public class Person {
     private final StringProperty lastName= new SimpleStringProperty("lastName");
     private final StringProperty team=new SimpleStringProperty("team");
     private final ObjectProperty<LocalDate> birthDate=new SimpleObjectProperty<>();
-    private final IntegerProperty lapsThisTime = new SimpleIntegerProperty(0);
+    private final IntegerProperty lapsThisTime = new SimpleIntegerProperty();
     private final ReadOnlyIntegerWrapper totalLaps = new ReadOnlyIntegerWrapper(0);
 
     public Person () {
@@ -70,7 +72,7 @@ public class Person {
 
     /*BirthDate Properties */
 
-    public final LocalDate getBirDate() {
+    public final LocalDate getBirthDate() {
         return birthDate.get();
     }
 
@@ -103,17 +105,73 @@ public class Person {
         return totalLaps.getReadOnlyProperty();
     }
     /* Check validity of properties*/
-
+    public boolean isValidBirthDate(LocalDate bDate,List<String> errorList){
+       
+        if(bDate==null){
+            return true;
+        }
+        if(bDate.isAfter(LocalDate.now())){
+            errorList.add("Date must not be in the future!");
+            return false;
+        }
+        
+        return true;
+    }
+    public boolean isValidLapsThisTime(int lapsThisTime,List<String> errorList){
+        if(lapsThisTime<=0) {
+            errorList.add("Laps must be >0");
+            return false;
+        }
+            
+        return true;
+    }
     @Override
     public String toString(){
         return  "Name:" + firstName.get()+
-                "Last Name: "+ lastName.get()+
-                "Team: "+team.get()+
-                "Birth Date: "+birthDate.get()+
-                "Total Laps: "+totalLaps.get();
+                "-Last Name: "+ lastName.get()+
+                "-Team: "+team.get()+
+                "-Birth Date: "+birthDate.get()+
+                "-Laps this time: "+lapsThisTime.get()+
+                "-Total Laps: "+totalLaps.get();
     }
+    public boolean isValidPerson(List<String> errorList){
+        return isValidPerson(this,errorList);
 
+    }
+    public boolean isValidPerson(Person p, List<String> erroList) {
+        boolean isValid=true;
+       
+        String fn=p.getFirstName();
+        if(fn==null || fn.trim().length()==0){
+            isValid=false;
+            erroList.add("First must contain one charachter!");
+        }
+        
+
+        String ln = p.getLastName();
+        if(ln==null || ln.trim().length()==0) {
+            isValid=false;
+            erroList.add("Last name must contain one charachter");
+        }
+
+     
+        String team= p.getTeam();
+        if(team==null || team.trim().length()==0) {
+            isValid=false;
+
+        }
+        //check bDate
+        if(!isValidBirthDate(this.getBirthDate(), erroList)){
+            isValid=false;
+        }
+        if(!isValidLapsThisTime(this.getLapsThisTime(), erroList)) {
+            isValid=false;
+        }
+
+        return isValid;
+    }
     public void save() {
+    
         System.out.println("Saved"+this.toString());
     }
 

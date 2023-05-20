@@ -2,6 +2,7 @@
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import Model.Person;
 import View.PersonView;
 
 public class Main extends Application {
@@ -12,8 +13,8 @@ public class Main extends Application {
     @Override
     public void start(Stage primarystage) throws Exception{
 
-    
-        PersonView view= new PersonView();
+        Person model = new Person();
+        PersonView view= new PersonView(model);
 
         primarystage.setTitle("Test");
         primarystage.setScene(new Scene(view, 400, 300, false, null));
