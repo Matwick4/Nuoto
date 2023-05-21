@@ -12,6 +12,14 @@
 
 # Package Files #
 *.jar
+!javafx.base.jar
+!javafx-swt.jar
+!javafx.controls.jar
+!javafx.fxml.jar
+!javafx.graphics.jar
+!javafx.media.jar
+!javafx.swing.jar
+!javafx.web.jar
 *.war
 *.nar
 *.ear
